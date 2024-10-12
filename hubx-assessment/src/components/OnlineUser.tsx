@@ -1,4 +1,3 @@
-import React from 'react'
 import { CiFaceSmile } from 'react-icons/ci'
 import { TbUser } from 'react-icons/tb'
 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
 import Slider from '@mui/material/Slider';
@@ -7,7 +7,7 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-const style = {
+const style: React.CSSProperties = {
     position: 'absolute',
     top: '50%',
     left: '50%',
@@ -15,7 +15,7 @@ const style = {
     width: 300,
     backgroundColor: 'white',
     border: '2px solid #000',
-    boxShadow: 24,
+    boxShadow: '0px 4px 24px rgba(0, 0, 0, 0.12)',
     padding: 8,
 };
 
@@ -29,42 +29,28 @@ export default function BasicModal() {
     const handleClose = () => setOpen(false);
 
     useEffect(() => {
-            const totalPrice = noOfInvite * duration * 100;
-            setPrice(totalPrice);
-    }, [noOfInvite, duration])
-
-
-    // Update price when slider values change
-    const handleInviteChange = (event, value: number) => {
-        setNoOfInvite(value);
-    };
-
-    const handleDurationChange = (event, value: number) => {
-        setDuration(value);
-    };
-
+        const totalPrice = noOfInvite * duration * 100;
+        setPrice(totalPrice);
+    }, [noOfInvite, duration]);
 
     // Chart.js data for the Pie chart
     const pieData = {
-        labels: ['Invites', 'Duration' ],
+        labels: ['Invites', 'Duration'],
         datasets: [
             {
                 label: 'Event Data',
                 data: [noOfInvite, duration],
-                backgroundColor: ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)' ],
-                borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)' ],
+                backgroundColor: ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)'],
+                borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)'],
                 borderWidth: 1,
             },
         ],
     };
 
     return (
-        <div className=''>
+        <div>
             <Button onClick={handleOpen}>Invite</Button>
-            <Modal
-                open={open}
-                onClose={handleClose}
-            >
+            <Modal open={open} onClose={handleClose}>
                 <div style={style}>
                     <h2 className="text-center font-semibold">Invite to an Event</h2>
 
@@ -75,7 +61,7 @@ export default function BasicModal() {
                             min={1}
                             max={100}
                             step={1}
-                            onChange={handleInviteChange}
+                            onChange={(_, value) => setNoOfInvite(value as number)}
                             aria-labelledby="invite-slider"
                         />
                     </div>
@@ -87,14 +73,13 @@ export default function BasicModal() {
                             min={1}
                             max={24}
                             step={1}
-                            onChange={handleDurationChange}
+                            onChange={(_, value) => setDuration(value as number)}
                             aria-labelledby="duration-slider"
                         />
                     </div>
 
-
                     <div className="mb-4">
-                        <p>Total Price:  &#8377; {price}</p>
+                        <p>Total Price: &#8377; {price}</p>
                     </div>
 
                     {/* Pie Chart */}

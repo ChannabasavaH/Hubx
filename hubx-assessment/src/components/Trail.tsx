@@ -1,4 +1,3 @@
-import React from 'react'
 import { CgSandClock } from "react-icons/cg";
 
 const Trail = () => {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { LuEye } from "react-icons/lu";
 import { FaPlus, FaPowerOff } from "react-icons/fa";
 import { MdQuestionMark } from "react-icons/md";
@@ -10,7 +10,7 @@ const Navbar = () => {
     const [hambar, setHamber] = useState(false);
 
     const handleMenuChange = () => {
-        setHamber((prevVal) => !prevVal);
+        setHamber((prevVal: boolean) => !prevVal);
     };
 
     return (

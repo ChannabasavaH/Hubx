@@ -1,4 +1,3 @@
-import React from 'react'
 import { TbUser } from "react-icons/tb";
 import { PiArrowsCounterClockwise } from "react-icons/pi";
 import { LuAlarmClock } from "react-icons/lu";

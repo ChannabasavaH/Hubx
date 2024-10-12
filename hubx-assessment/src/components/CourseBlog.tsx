@@ -1,4 +1,3 @@
-import React from 'react'
 import { TbSquareRotatedForbid2 } from "react-icons/tb";
 
 const CourseBlog = () => {

@@ -1,4 +1,3 @@
-import React from 'react'
 import Navbar from '../components/Navbar'
 import NewUsers from '../components/NewUsers'
 import CourseBlog from '../components/CourseBlog'

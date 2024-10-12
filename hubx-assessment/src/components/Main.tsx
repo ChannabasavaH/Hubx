@@ -1,4 +1,3 @@
-import React from 'react'
 import UsersLogos from './UsersLogos'
 import { MdOutlineCalendarMonth, MdKeyboardArrowDown } from "react-icons/md";
 import LineChart from './LineChart';
